@@ -24,7 +24,7 @@ async function postBookingByRoomId(userId: number, roomId: number) {
 }
 
 async function putBookingByRoomIdAndBookingId(userId: number, roomId: number, bookingId: number) {
-  const verifyRersevation = await bookingRepository.findBookingByUserId(userId);
+  const verifyRersevation = await bookingRepository.findBookingByBookingIdAndUserId(bookingId, userId);
 
   if(!verifyRersevation) throw notFoundError();
 
